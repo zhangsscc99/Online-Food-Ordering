@@ -6,6 +6,7 @@ spring:
     url: jdbc:postgresql://${DATABASE_URL:localhost}:5432/onlineorder
     username: ${DATABASE_USERNAME:postgres}
     password: ${DATABASE_PASSWORD:951369}
+
     driver-class-name: org.postgresql.Driver
   sql:
     init:

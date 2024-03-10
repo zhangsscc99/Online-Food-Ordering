@@ -9,6 +9,7 @@ services:
     environment:
       POSTGRES_DB: onlineorder
       POSTGRES_PASSWORD: 951369
+
       TZ: UTC
     volumes:
       - onlineorder-pg-local:/var/lib/postgresql/data
@@ -18,3 +19,4 @@ services:
 
 volumes:
   onlineorder-pg-local:
+
