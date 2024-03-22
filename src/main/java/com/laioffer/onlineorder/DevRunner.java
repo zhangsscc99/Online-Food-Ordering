@@ -8,6 +8,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -48,8 +50,7 @@ public class DevRunner implements ApplicationRunner {
 
         cartRepository.saveAll(List.of(
                 new CartEntity(null, 1L, 0.0),
-                new CartEntity(null, 2L, 0.0)
-        ));
+                new CartEntity(null, 2L, 0.0)));
 
 
         List<RestaurantEntity> newRestaurants = List.of(
@@ -85,5 +86,10 @@ public class DevRunner implements ApplicationRunner {
                 new OrderItemEntity(null, 5L, 2L, 30.0, 1)
         );
         orderItemRepository.saveAll(newOrderItems);
+
+
+        customerRepository.deleteById(2L);
+        restaurantRepository.deleteById(4L);
+        customerRepository.updateNameById(1L, "first", "last");
     }
 }
