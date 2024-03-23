@@ -5,6 +5,7 @@ import com.laioffer.onlineorder.entity.*;
 import com.laioffer.onlineorder.model.RestaurantDto;
 import com.laioffer.onlineorder.repository.*;
 import com.laioffer.onlineorder.service.CartService;
+import com.laioffer.onlineorder.service.CustomerService;
 import com.laioffer.onlineorder.service.MenuItemService;
 import com.laioffer.onlineorder.service.RestaurantService;
 import org.slf4j.Logger;
@@ -36,6 +37,12 @@ public class DevRunner implements ApplicationRunner {
     private final MenuItemService menuItemService;
     private final RestaurantService restaurantService;
 
+    private final CustomerService customerService;
+
+
+
+
+
 
     public DevRunner(
             CartRepository cartRepository,
@@ -45,7 +52,8 @@ public class DevRunner implements ApplicationRunner {
             RestaurantRepository restaurantRepository,
             CartService cartService,
             MenuItemService menuItemService,
-            RestaurantService restaurantService) {
+            RestaurantService restaurantService,
+            CustomerService customerService) {
         this.cartRepository = cartRepository;
         this.customerRepository = customerRepository;
         this.menuItemRepository = menuItemRepository;
@@ -54,6 +62,7 @@ public class DevRunner implements ApplicationRunner {
         this.cartService = cartService;
         this.menuItemService = menuItemService;
         this.restaurantService = restaurantService;
+        this.customerService = customerService;
     }
 
 
@@ -139,5 +148,6 @@ public class DevRunner implements ApplicationRunner {
 
 
         logger.info(cartService.getCart(1L).toString());
+        customerService.signUp("foo@mail.com", "123456", "Foo", "Bar");
     }
 }
